@@ -310,13 +310,14 @@ img {
 
         .contact {
             .contact-item {
-                margin-bottom: 8px;
+                margin-bottom: 16px;
                 
 
                 span,
-                p {
+                a {
                     font-size: 36px;
                     line-height: 1;
+                    text-decoration: none;
                   
                     @include pad{
                         font-size: 22px;
@@ -376,6 +377,9 @@ img {
         display: flex;
         justify-content: space-between;
 
+        @include pad{
+            padding: 20px 0;
+        }
         @include mobile{
             padding: 24px 0;
             flex-direction: column;
