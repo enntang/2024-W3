@@ -1,0 +1,403 @@
+// break point setting
+@mixin pad {
+    @media(max-width:992px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media(max-width:576px) {
+        @content;
+    }
+}
+
+// general
+
+:root {
+    --primary-red: #AA0601;
+    --dark-red: #650300;
+    --background: #FBF2F2;
+    --dark-gray: #707070;
+}
+body * {
+    box-sizing: border-box;
+    // border:1px solid olivedrab;
+}
+
+button,
+a {
+    font-family: "Noto Sans TC", "Roboto", sans-serif;
+
+    &:hover {
+        opacity: 0.6;
+    }
+
+    ;
+    cursor: pointer;
+}
+
+button {
+    padding: 6px 12px;
+    background-color: var(--primary-red);
+    font-weight: 300;
+    font-size: 20px;
+    color: white;
+    border: none;
+}
+
+p,
+h2,
+h3,
+h4,
+label {
+    font-family: "Noto Sans TC", "Roboto", sans-serif;
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+// flex
+
+.d-flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-end {
+    justify-content: flex-end;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+// utilities
+
+
+.container-md-fluid {
+    max-width: 1320px;
+    padding: 0 12px;
+    margin: 0 auto;
+
+    @include pad {
+        max-width: 767px;
+    }
+
+    @include mobile {
+        max-width: 576px;
+
+    }
+
+}
+
+.container-sm-full {
+    @include mobile {
+        max-width: 576px;
+        margin: 0 auto;
+    }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -12px;
+    margin-left: -12px;
+}
+
+.col-lg-6 {
+    width: calc(100% / 2);
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+.col-lg-4 {
+    width: calc(100% / 3);
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+.col-lg-3 {
+    width: calc(100% / 4);
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+.col-md-6 {
+    @include pad {
+        width: calc(100% / 2);
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+}
+
+.col-md-4 {
+    @include pad {
+        width: calc(100% / 3);
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+}
+
+.col-md-3 {
+    @include pad {
+        width: calc(100% / 4);
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+}
+
+.col-md-10 {
+    @include pad {
+        width: calc(100% / 12 * 10);
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+}
+
+.col-md-12 {
+    @include pad {
+        width: 100%;
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+}
+
+.col-lg-6,
+.col-lg-4,
+.col-lg-3,
+.col-md-10,
+.col-md-6,
+.col-md-4,
+.col-md-3 {
+    @include mobile {
+        width: 100%;
+    }
+}
+
+.text-white {
+    color: white;
+}
+
+.bg-color {
+    background-color: var(--background);
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.h-100{
+    height:100%;
+}
+
+// navbar
+
+.navbar {
+    background-color: var(--primary-red);
+    padding: 16px 0;
+
+    .container-sm-full {
+        @include mobile {
+            padding: 0;
+            margin-bottom: -16px;
+        }
+
+
+    }
+
+    .logo {
+        @include mobile {
+            padding: 15px 0;
+            margin-left: 12px;
+        }
+
+        img {
+            width: 80px;
+            height: 48px;
+        }
+    }
+
+    .navbar-items-group {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        @include mobile {
+            width: 100%;
+        }
+
+        .navbar-items {
+            &:last-child a{
+                padding-right: 0;
+            }
+            @include mobile {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
+                height: 48px;
+                border: white 1px solid;
+                &:last-child a{
+                    padding-right: 24px;
+                }
+            }
+
+            a {
+                padding: 12px 24px;
+                color: white;
+                font-size: 20px;
+                text-decoration: none;
+                font-weight: 100;
+
+                @include mobile {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+}
+
+// footer
+
+.footer {
+    background-color: var(--primary-red);
+
+    * {
+        color: white;
+        font-weight: 300;
+    }
+
+    padding-top: 60px;
+    @include mobile{
+        padding-top: 24px;
+    }
+
+    .footer-info {
+        .map{
+            @include mobile{
+                display: none;
+            }
+        }
+        .map ul li {
+            height: 50px;
+            margin-left: -24px;
+
+            a {
+                padding: 24px;
+                text-decoration: none;
+            }
+        }
+
+        .contact {
+            .contact-item {
+                margin-bottom: 8px;
+                
+
+                span,
+                p {
+                    font-size: 36px;
+                    line-height: 1;
+                  
+                    @include pad{
+                        font-size: 22px;
+                    }
+                    @include mobile{
+                        font-size: 16px;
+                        margin-bottom: 8px;
+                    }
+                }
+
+                span {
+                    margin-right: 22px;
+                    @include mobile{
+                        margin-right: 11px;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .footer-social-media {
+        li {
+            &:last-child a {
+                padding-right: 0;
+            }
+
+            a {
+                padding-right: 32px;
+                @include pad{
+                   padding-right: 16px;
+                }
+                @include mobile{
+                   padding-right: 8px;
+                }
+
+                img {
+                    width: 48px;
+                    height: 48px;
+                    @include pad{
+                        width: 40px;
+                        height: 40px;
+                    }
+                    @include mobile{
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    .footer-copyright {
+        padding: 32px 0;
+        display: flex;
+        justify-content: space-between;
+
+        @include mobile{
+            padding: 24px 0;
+            flex-direction: column;
+        }
+        .license-group {
+            @include mobile{
+                margin-top: 4px;
+            }
+            a {
+                padding: 24px;
+                text-decoration: none;
+                line-height: 1.5;
+
+                &:last-child {
+                    padding-right: 0;
+                }
+                @include mobile{
+                    display: block;
+                    padding: 4px 4px 4px 0;
+                }
+
+            }
+        }
+    }
+}
